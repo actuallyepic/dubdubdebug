@@ -88,12 +88,78 @@
         </div>
 
         <div id="web">
-            <iframe src="https://app.uniswap.org/#/swap">
 
-            </iframe>
         </div>
     </div>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    class Tab{
+        constructor(url) {
+            this.url = url;
+            this.webView = document.createElement('iframe');
+            this.webView.setAttribute('src', this.url);
+            this.webView.setAttribute('onLoad', "alert('test'");
+            this.canReload = false;
+            this.canGoForward = false;
+            this.canGoBack = false;
+        }
+        getWebView(){
+            return this.webView
+        }
+
+        search(url){
+            this.url = url;
+            this.webView.src = url;
+        }
+    }
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js"></script>
+<script src="web3compiled.js"></script>
+<script>
+    $(document).ready(() => {
+
+        let rpc = "https://mainnet.infura.io/v3/aa262f95599e404ba8ea4a28c16d62d2";
+        const web3 = new Web3(rpc);
+        var ethereum = web3.eth;
+        console.log(ethereum);
+
+
+        let first = new Tab("https://app.uniswap.org/")
+        $("#web").append(first.getWebView());
+
+        $("#search-box").on("keydown", function(e){
+            console.log(e.code)
+            if (e.code == "Enter"){
+                first.search($(this).val())
+            }
+        })
+
+        Object.defineProperty(window.ethereum, '_web3Ref', {
+            enumerable: false,
+            writable: true,
+            configurable: true,
+            value: web3.eth,
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+</script>
 </body>
 </html>
