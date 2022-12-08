@@ -1,0 +1,17 @@
+{
+  "name": "node-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "build": "node_modules/.bin/browserify src/*.js dub-wallet/*.js -o push.js -d",
+    "work" : "node_modules/.bin/watchify node.js -o ../iframe-browser/compiled_node.js -d"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lightdotso/provider": "^0.0.1",
+    "browserify": "^17.0.0",
+    "watchify": "^4.0.0"
+  }
+}

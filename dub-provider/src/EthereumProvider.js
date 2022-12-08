@@ -182,6 +182,8 @@ class EthereumProvider extends base_provider_1.BaseProvider {
             this.wrapResults.set(payload.id, wrapResult);
             (0, log_1.logInpage)(`==> _request callbacks: ${JSON.stringify(Array.from(this.callbacks.keys()))}`);
             switch (payload.method) {
+                case "test":
+                    return this.postMessage("test", "1", "d")
                 case "eth_coinbase":
                     return this.sendResponse(payload.id, this.eth_coinbase());
                 case "net_version":
