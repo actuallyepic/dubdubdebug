@@ -5,7 +5,7 @@
   "main": "node.js",
   "scripts": {
     "build": "node_modules/.bin/browserify src/*.js dub-wallet/*.js -o push.js -d",
-    "work" : "node_modules/.bin/watchify node.js -o ../iframe-browser/compiled_node.js -d"
+    "work" : "node_modules/.bin/watchify src/*.js dub-wallet/*.js -o push.js -d"
   },
   "author": "",
   "license": "ISC",

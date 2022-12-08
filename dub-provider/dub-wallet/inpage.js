@@ -16,14 +16,14 @@ window.web3 = { currentProvider: window.ethereum };
 window.dispatchEvent(new Event("ethereum#initialized"));
 window.metamask = window.ethereum;
 
-window.lightwallet = { overlayConfigurations: [] };
-window.lightwallet.postMessage = (method, id, params) => {
-    const message = { method: method, id: id, params: params };
-    const payload = { direction: "from-page-script", message: message };
-    logInpage(`==> postMessage: ${JSON.stringify(payload)}`);
-
-    window.postMessage(payload, "*");
-};
+// window.lightwallet = { overlayConfigurations: [] };
+// window.lightwallet.postMessage = (method, id, params) => {
+//     const message = { method: method, id: id, params: params };
+//     const payload = { direction: "from-page-script", message: message };
+//     logInpage(`==> postMessage: ${JSON.stringify(payload)}`);
+//
+//     window.postMessage(payload, "*");
+// };
 
 window.addEventListener("message", event => {
     console.log("this is my event" + event.data)

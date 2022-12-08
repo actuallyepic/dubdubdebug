@@ -423,7 +423,11 @@ class EthereumProvider extends base_provider_1.BaseProvider {
             method === "requestAccounts" ||
             method === "switchEthereumChain" ||
             method === "addEthereumChain") {
-            window.lightwallet.postMessage(method, id, params);
+            // window.lightwallet.postMessage(method, id, params);
+
+            const message = { method: method, id: id, params: params };
+            const payload = { direction: "from-page-script", message: message };
+            window.postMessage(payload, "*");
         }
         else {
             // don't forget to verify in the app
